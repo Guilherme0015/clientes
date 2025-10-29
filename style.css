@@ -1,95 +1,70 @@
-/* Estilos Gerais */
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #eef2f5;
+    font-family: 'Arial', sans-serif;
+    background-color: #fff7fb; /* rosa bem clarinho */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
     margin: 0;
-    padding: 0;
-    color: #333;
 }
 
 .container {
-    max-width: 900px;
-    margin: 40px auto;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    background-color: #ffe4f0; /* rosa pastel */
+    padding: 30px;
+    border-radius: 15px; /* bordas mais arredondadas para fofura */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
 }
 
 h1 {
     text-align: center;
-    color: #007bff;
-    margin-bottom: 30px;
+    color: #ff6f91; /* rosa mais forte para o título */
+    margin-bottom: 20px;
+    font-family: 'Comic Sans MS', cursive, sans-serif; /* estilo mais divertido */
 }
 
-h2 {
-    border-bottom: 2px solid #eee;
-    padding-bottom: 10px;
-    margin-top: 30px;
-    color: #444;
-}
-
-/* Estilos do Formulário */
-.form-container {
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    margin-bottom: 30px;
-}
-
-label {
+form label {
     display: block;
-    margin-top: 15px;
     margin-bottom: 5px;
-    font-weight: 600;
+    font-weight: bold;
+    color: #ff91a4; /* rosa pastel para os labels */
 }
 
-input[type="text"], input[type="email"] {
+form input[type="text"],
+form input[type="email"],
+form input[type="tel"] {
     width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-sizing: border-box; /* Inclui padding e borda na largura total */
-}
-
-button[type="submit"] {
-    background-color: #28a745;
-    color: white;
-    padding: 12px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 20px;
-    font-size: 16px;
-    transition: background-color 0.3s;
-}
-
-button[type="submit"]:hover {
-    background-color: #218838;
-}
-
-/* Estilos da Tabela */
-.list-container {
-    overflow-x: auto; /* Para rolagem em telas pequenas */
-}
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-}
-
-th, td {
-    border: 1px solid #ddd;
     padding: 12px;
-    text-align: left;
+    margin-bottom: 15px;
+    border: 1px solid #ffcce0; /* borda suave */
+    border-radius: 10px; /* input arredondado */
+    box-sizing: border-box;
+    background-color: #fff0f5; /* leve tom rosa dentro do input */
+    transition: all 0.3s ease;
 }
 
-th {
-    background-color: #f8f9fa;
-    color: #333;
+form input[type="text"]:focus,
+form input[type="email"]:focus,
+form input[type="tel"]:focus {
+    border-color: #ff91a4;
+    box-shadow: 0 0 5px #ff91a4;
+    outline: none;
 }
 
-tr:nth-child(even) {
-    background-color: #f2f2f2;
+form button {
+    background-color: #ff91a4; /* rosa fofo */
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+    transition: all 0.3s ease;
+}
+
+form button:hover {
+    background-color: #ffb6c1; /* rosa mais claro ao passar o mouse */
+    transform: translateY(-2px);
 }
