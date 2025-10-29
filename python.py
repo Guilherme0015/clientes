@@ -1,42 +1,40 @@
 from flask import Flask, render_template, request, redirect, url_for
 
+# Lista simples para armazenar os clientes (em um projeto real, você usaria um banco de dados)
+clientes = []
+
 app = Flask(__name__)
 
-# Lista para armazenar temporariamente os dados dos clientes
-# Em uma aplicação real, você usaria um banco de dados (SQLite, PostgreSQL, etc.)
-clientes = []
-id_contador = 1
-
+# Rota para a página inicial (o formulário)
 @app.route('/')
 def index():
-    # Renderiza a página principal, passando a lista de clientes para exibição
-    return render_template('cadastro.html', clientes=clientes)
+    # Supondo que 'index.html' esteja em uma pasta chamada 'templates'
+    return render_template('index.html')
 
+# Rota para receber os dados do formulário
 @app.route('/cadastrar', methods=['POST'])
-def cadastrar_cliente():
-    global id_contador
+def cadastrar():
     if request.method == 'POST':
-        # 1. Captura os dados do formulário
+        # Obtém os dados do formulário
         nome = request.form['nome']
         email = request.form['email']
-        telefone = request.form['telefone']
-        
-        # 2. Cria um dicionário com os dados do novo cliente
+        telefone = request.form.get('telefone', 'Não Informado') # Usa .get para campos opcionais
+
         novo_cliente = {
-            'id': id_contador,
             'nome': nome,
             'email': email,
             'telefone': telefone
         }
-        
-        # 3. Adiciona o novo cliente à lista e incrementa o contador
+
+        # Adiciona o cliente à lista (simulação de salvamento)
         clientes.append(novo_cliente)
-        id_contador += 1
+
+        # Log no console do servidor para verificar
+        print(f"Cliente Cadastrado: {novo_cliente}")
         
-        # 4. Redireciona o usuário de volta para a página inicial (que exibirá o novo cliente)
-        return redirect(url_for('index'))
+        # Redireciona para uma página de sucesso ou lista
+        return f"<h1>Cliente {nome} cadastrado com sucesso!</h1><p><a href='/'>Voltar</a></p>"
 
 if __name__ == '__main__':
-    # Inicializa o servidor Flask
-    # O 'debug=True' permite que o servidor reinicie automaticamente após alterações
+    # Para rodar o servidor, você precisa criar uma pasta 'templates' e colocar o 'index.html' dentro dela.
     app.run(debug=True)
